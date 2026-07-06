@@ -37,24 +37,7 @@ Open by acknowledging the appeal directly — this isn't a talk arguing LLMs are
 
 ---
 
-## Two Papers, One Question
-
-Two companion papers, both asking whether LLM-based annotation can be trusted to replicate:
-
-::: {.incremental}
-- **Paper 1** (Barrie, Palaiologou & Törnberg): a diagnostic **tool** — can you tell, cheaply, whether a pipeline is fragile? [@barrie2024promptstability]
-- **Paper 2** (Barrie, Palmer & Spirling): an empirical **audit** — repeated LLM replications over a year, tracking what actually breaks [@barrie2024replication]
-- **Shared logic**: both repurpose human inter-coder reliability statistics for a new kind of "rater" — the LLM
-- **This talk**: the diagnostic's mechanics, the empirical evidence, a synthesis — then you try both yourselves
-:::
-
-::: {.notes}
-Christopher Barrie is a co-author on both papers — Paper 2 explicitly cites Paper 1's tool as one of its own recommendations, with the caveat that a stability check alone doesn't solve the deeper closed-model replication problem. Frame this as "same worry, two angles": one gives you a pre-flight check you can run on your own pipeline; the other tells you, empirically and at scale, how bad things get if you skip it.
-:::
-
----
-
-## Paper 1, In Its Own Words
+## Paper 1
 
 ![Title page and abstract, Paper 1 [@barrie2024promptstability]](figures/paper_promptstability_titlepage.png){height="620px" fig-alt="Title page of Prompt Stability Scoring for Text Annotation with Large Language Models, showing the abstract describing the Prompt Stability Score and the promptstability package"}
 
@@ -64,12 +47,29 @@ Note the title page prints no author names on Paper 1 itself — the attribution
 
 ---
 
-## Paper 2, In Its Own Words
+## Paper 2
 
 ![Title page and abstract, Paper 2 [@barrie2024replication]](figures/paper_replication_titlepage.png){height="620px" fig-alt="Title page of Replication for Large Language Models: Problems, Principles, and Best Practices for Political Science, showing the abstract describing the rolling iterated replication design"}
 
 ::: {.notes}
 Point out the abstract's own framing: "LLMs can be accurate, but the observed variance in performance is often unacceptably high. Strict temperature control does not resolve these issues." That sentence previews Findings 2 and 3 almost exactly — worth flagging before we get there.
+:::
+
+---
+
+## Two Papers, One Question
+
+Two companion papers, both asking whether LLM-based annotation can be trusted to replicate:
+
+::: {.incremental}
+- **Paper 1** (Barrie, Palaiologou & Törnberg): a diagnostic **tool** — can you tell, cheaply, whether a pipeline is fragile? [@barrie2024promptstability]
+- **Paper 2** (Barrie, Palmer & Spirling): an empirical **audit** — repeated LLM replications over a year, tracking what actually breaks [@barrie2024replication]
+- **Shared logic**: both repurpose human inter-coder reliability approaches for a new kind of "rater" — the LLM
+- **This talk**: the diagnostic's mechanics, the empirical evidence, a synthesis — then you try both yourselves
+:::
+
+::: {.notes}
+Christopher Barrie is a co-author on both papers — Paper 2 explicitly cites Paper 1's tool as one of its own recommendations, with the caveat that a stability check alone doesn't solve the deeper closed-model replication problem. Frame this as "same worry, two angles": one gives you a pre-flight check you can run on your own pipeline; the other tells you, empirically and at scale, how bad things get if you skip it.
 :::
 
 ---
@@ -218,12 +218,25 @@ A practical robustness workflow combining both papers' tools:
 1. **PSS pre-check** — run intra-/inter-PSS before investing further
 2. **Validate a subsample** against expert or gold-standard codes
 3. **Sweep models and versions** — does the finding survive?
-4. **Document everything** — model, version, prompt, settings, date run
-5. **Prefer open, versioned models** where the task allows it
+4. **Prefer open, versioned models** where the task allows it
+5. **Document everything** — model, version, prompt, settings, date run
+
 :::
 
 ::: {.notes}
 Make explicit that this five-step workflow is our synthesis of the two papers for teaching purposes — it is not a diagram either paper prints. Step 1 comes from Paper 1's PSS Playbook; steps 2, 4, and 5 come from Paper 2's practitioner recommendations; step 3 generalizes Paper 2's own multi-model design (Figure 1) into a check anyone can run. Reveal one step at a time and pause on each.
+:::
+
+---
+
+## A Field-Wide Checklist, Not Just This Talk's {.smaller}
+
+This isn't just a two-paper synthesis — a large, cross-disciplinary author group (Christopher Barrie and Arthur Spirling among them) recently proposed a consensus reporting checklist for exactly this problem, across the behavioural sciences:
+
+[![Feuerriegel, Barrie, Crockett, et al. (2026), "A reporting checklist for large language models in behavioural science," *Nature Human Behaviour*. Click to open the article.](figures/nature_checklist_article.png){height="520px" fig-alt="Nature Human Behaviour comment article, 'A reporting checklist for large language models in behavioural science,' by Stefan Feuerriegel, Christopher Barrie, and many co-authors, published 9 June 2026"}](https://www.nature.com/articles/s41562-026-02492-7)
+
+::: {.notes}
+Click through to the live article if presenting online. This checklist is the field-level, consensus version of the same instinct behind our five-step workflow on the previous slide: standardize what gets reported (model, version, prompt, decoding settings, validation) so LLM-based behavioural-science findings can actually be checked and replicated. Worth noting Paper 2 itself cites an earlier version of this checklist effort in its own recommendations.
 :::
 
 ---
