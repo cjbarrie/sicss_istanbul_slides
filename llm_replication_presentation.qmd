@@ -229,9 +229,7 @@ Make explicit that this five-step workflow is our synthesis of the two papers fo
 
 ---
 
-## A Field-Wide Checklist, Not Just This Talk's {.smaller}
-
-This isn't just a two-paper synthesis — a large, cross-disciplinary author group (Christopher Barrie and Arthur Spirling among them) recently proposed a consensus reporting checklist for exactly this problem, across the behavioural sciences:
+## A Field-Wide Checklist {.smaller}
 
 [![Feuerriegel, Barrie, Crockett, et al. (2026), "A reporting checklist for large language models in behavioural science," *Nature Human Behaviour*. Click to open the article.](figures/nature_checklist_article.png){height="520px" fig-alt="Nature Human Behaviour comment article, 'A reporting checklist for large language models in behavioural science,' by Stefan Feuerriegel, Christopher Barrie, and many co-authors, published 9 June 2026"}](https://www.nature.com/articles/s41562-026-02492-7)
 
